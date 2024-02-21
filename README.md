@@ -19,9 +19,9 @@ Alzheimer's disease poses significant challenges for both individuals living wit
 - **Emergency Assistance**: Seek assistance quickly in case of emergencies using the SOS feature.
 - **Medication Management**: Effectively manage medications, reducing the risk of missed doses and complications.
 
-## Video Link
+## Video
 
-[Watch our YARN overview video here](https://youtu.be/Jxu8W9nYCeo?feature=shared)
+<iframe width="560" height="315" src="https://www.youtube.com/embed/VIDEO_ID_HERE" frameborder="0" allowfullscreen></iframe>
 
 ## Photos
 
