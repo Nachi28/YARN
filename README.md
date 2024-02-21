@@ -24,8 +24,8 @@ Alzheimer's disease poses significant challenges for both individuals living wit
 
 ## Photos
 
-![Photo 1](READMEAssets/block_diag.png)
-![Photo 2](READMEAssets/SOS_sms.jpg)
+![Block Diagram](READMEAssets/block_diagram.png)
+![SOS Message](READMEAssets/SOS_message.jpg)
 
 ## Getting Started
 
