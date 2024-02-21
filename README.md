@@ -23,8 +23,11 @@ Alzheimer's disease poses significant challenges for both individuals living wit
 - **Medication Management**: Effectively manage medications, reducing the risk of missed doses and complications.
 
 ## Photos
-
+Block Diagram
 ![Block Diagram](READMEAssets/block_diag.png)
+
+
+SOS Message
 ![SOS Message](READMEAssets/SOS_sms.jpg)
 
 ## Getting Started
