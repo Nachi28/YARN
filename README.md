@@ -20,16 +20,41 @@ Alzheimer's disease poses significant challenges for both individuals living wit
 - **Medication Management**: Effectively manage medications, reducing the risk of missed doses and complications.
 
 ## Video
-
-<iframe width="560" height="315" src="[https://www.youtube.com/embed/VIDEO_ID_HERE](https://www.youtube.com/watch?v=Jxu8W9nYCeo)" frameborder="0" allowfullscreen></iframe>
+https://github.com/Nachi28/YARN/assets/79222622/f0ba2b9b-83b0-4e4b-b960-765f9f7b3fff
 
 ## Photos
 
-![Photo 1](photos/blockdiag.png)
-![Photo 2](photos/photo2.jpg)
+![Photo 1](photos/block_diag.png)
+![Photo 2](photos/SOS_sms.jpg)
 
 ## Getting Started
 
-To get started with YARN:
+To get started with YARN, follow these steps:
 
+1. Clone the repository:
+
+```bash
+git clone https://github.com/Nachi28/YARN.git
+```
+2. Ensure you have the latest version of Node.js installed.
+
+3. Install all required packages:
+```bash
+npm install
+```
+4. Set up your environment variables in a file named .env with the following format:
+```bash
+TWILIO_ACCOUNT_SID=xxx-xxx
+TWILIO_AUTH_TOKEN=xxx-xxx
+SESSION_SECRET=xxx-xxx
+MONGODB_URI=xxx-xxx
+OPENAI=xxx-xxx
+```
+Make sure to replace xxx-xxx with your actual credentials.
+
+5. Run the application:
+```bash
+npm run devStart
+```
+6. Finally, open your web browser and navigate to http://localhost:5000 to access the application.
 
