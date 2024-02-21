@@ -2,6 +2,9 @@
 
 YARN is an innovative application designed to address the challenges faced by individuals living with Alzheimer's disease. By providing a range of features aimed at cognitive support, task management, emergency assistance, and improving overall quality of life, YARN aims to make a meaningful difference in the lives of both patients and caregivers.
 
+## Video
+https://github.com/Nachi28/YARN/assets/79222622/f0ba2b9b-83b0-4e4b-b960-765f9f7b3fff
+
 ## The problem YARN solves
 
 Alzheimer's disease poses significant challenges for both individuals living with the condition and their caregivers. YARN addresses some of the key problems associated with Alzheimer's:
@@ -19,13 +22,10 @@ Alzheimer's disease poses significant challenges for both individuals living wit
 - **Emergency Assistance**: Seek assistance quickly in case of emergencies using the SOS feature.
 - **Medication Management**: Effectively manage medications, reducing the risk of missed doses and complications.
 
-## Video
-https://github.com/Nachi28/YARN/assets/79222622/f0ba2b9b-83b0-4e4b-b960-765f9f7b3fff
-
 ## Photos
 
-![Photo 1](photos/block_diag.png)
-![Photo 2](photos/SOS_sms.jpg)
+![Photo 1](READMEAssets/block_diag.png)
+![Photo 2](READMEAssets/SOS_sms.jpg)
 
 ## Getting Started
 
