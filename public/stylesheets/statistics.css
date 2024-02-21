@@ -1,0 +1,252 @@
+@import url('https://fonts.googleapis.com/css2?family=Bevan:ital@1&display=swap');
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-image: url('/assets/neww.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  cursor:url('/assets/Normal Select.cur'), auto;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #3498db;
+  padding: 10px;
+  font-weight: bold;
+}
+
+.logo img {
+  height: 40px; /* Adjust the height as needed */
+}
+
+/* Navbar options hover effect */
+.navbar-nav .nav-item:hover .nav-link {
+  background-color: #2072a6; /* Change the background color on hover */
+  color: #fff; /* Change the text color on hover */
+  border-radius: 5px; /* Add a slight border-radius on hover */
+  transition: background-color 0.3s ease, color 0.3s ease; /* Add a smooth transition effect */
+}
+
+
+.navbar-buttons {
+  display: flex;
+}
+.navbar-brand img {
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+
+/* Customize the background color and text color of dropdown items on hover */
+.dropdown-menu a.dropdown-item:hover {
+  background-color: #3498db;
+  color: white;
+}
+
+  button {
+    margin-left: 10px;
+    /* background-color: #ffffff; */
+    color: #276a97;
+    font-weight: bold;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    border-radius: 1rem;
+    background-color: #f3f5f7;
+    
+  }
+
+.title{
+  text-align: center;
+  font-family: 'Bevan', serif;
+  font-weight: 900;
+  font-style: italic;
+  color: #3f7ea8;
+    
+}
+
+.stats{
+  align-content: flex-end;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  right: 20%;
+}
+
+.profile-title {
+  color: #fff; /* White text color on the gradient background */
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+.profile-info {
+  display: flex;
+  flex-direction: column;
+  /* align-items: flex-start; */
+}
+  .profile-item {
+    color: #eee; /* Lighter text color on the gradient background */
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+  }
+
+  /* Navbar options hover effect */
+.navbar-nav .nav-item:hover .nav-link {
+  background-color: #2072a6; /* Change the background color on hover */
+  color: #fff; /* Change the text color on hover */
+  border-radius: 5px; /* Add a slight border-radius on hover */
+  transition: background-color 0.3s ease, color 0.3s ease; /* Add a smooth transition effect */
+}
+
+
+
+  .card {
+    width: 80%;
+    max-width: 400px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ddd; /* Lighter border color */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Slightly darker shadow */
+    background: linear-gradient(to bottom right, #acd4f7, #77cdff); /* Lighter to darker gradient background */
+    transition: box-shadow 0.3s ease;
+    cursor:pointer
+}
+.card:hover {
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* canvas {
+    max-width: 100%;
+    height: auto;
+} */
+.selection{
+  display: flex;
+  flex-direction: row;
+  gap: 5rem;
+  position: absolute;
+  top: 10.5rem;
+  left: 48rem;
+}
+.mb-3 {
+  margin-bottom: 1.5rem;
+}
+
+.form-label {
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.form-select {
+  width: max-content; 
+  display: inline-block;
+}
+
+#droptitle{
+  color:#37698b;
+  font-size: 1.2rem;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight:bold;
+}
+
+
+#chartTypeDropdown{
+  align-items: center;
+  background-color: #3498db;
+  color: white;
+}
+
+#timeRangeDropdown{
+  background-color: #3498db;
+  color: white;
+}
+
+#displayChartBtn {
+  display: block;
+  background-color: #3498db;
+  color: #fff;
+  font-weight: bold;
+  padding: 15px 40px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+  font-size: 1.5em;
+  position: absolute;
+  top: 18.5rem;
+  left: 51.5rem; 
+}
+
+#displayChartBtn:hover {
+  background-color: #e6eaee;
+  color: #2486c8;
+  font-weight: bold;
+
+  transition: .3s ease;
+  transform: scale(1.1);
+}
+
+.charts{
+  display: flex;
+  position: relative;
+  margin-top: -1rem;
+  margin-bottom: 0rem;
+}
+
+#Awards_pic img {
+  filter: grayscale(100%);
+  position: relative;
+  cursor: pointer;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+#downloadCsvBtn {
+  position: fixed;
+  bottom: 20px;
+  right: 40px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+#downloadCsvBtn svg {
+  margin-right: 5px;
+}
+
+#popover {
+  display: none;
+  position: fixed;
+  bottom: 80px;
+  right: 30px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.graphbtn{
+  display: flex;
+  gap: 5%;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+}

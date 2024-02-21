@@ -1,0 +1,534 @@
+@import url('https://fonts.googleapis.com/css2?family=Bevan:ital@1&display=swap');
+/* Import Google font - Poppins */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-image: url('/assets/neww.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  cursor:url('/assets/Normal Select.cur'), auto;
+}
+
+/* .navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #3498db;
+  padding: 10px;
+  font-weight: bold;
+} */
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #3498db;
+  padding: 10px;
+  font-weight: bold;
+}
+
+.logo img {
+  height: 40px; /* Adjust the height as needed */
+}
+
+/* Navbar options hover effect */
+.navbar-nav .nav-item:hover .nav-link {
+  background-color: #2072a6; /* Change the background color on hover */
+  color: #fff; /* Change the text color on hover */
+  border-radius: 5px; /* Add a slight border-radius on hover */
+  transition: background-color 0.3s ease, color 0.3s ease; /* Add a smooth transition effect */
+}
+
+
+.navbar-buttons {
+  display: flex;
+}
+.navbar-brand img {
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+
+/* Customize the background color and text color of dropdown items on hover */
+.dropdown-menu a.dropdown-item:hover {
+  background-color: #3498db;
+  color: white;
+}
+
+
+.Title{
+  color: #3f7ea8;
+  /* color: white; */
+  margin-top: 20px;
+  font-family: 'Bevan', serif;
+  font-weight: 600;
+  font-style: italic;
+}
+.rowcards{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: auto;
+  gap:20px;
+}
+
+.card:hover{
+  transform: scale(1.05);
+}
+.card {
+  width: 550px;
+  height: max-content;
+  background: linear-gradient(45deg, #3498db, #935dab); /* Gradient background */
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  transition: box-shadow 0.3s ease;
+  }
+
+  .profile-title {
+    color: #fff; /* White text color on the gradient background */
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+  }
+
+  .card:hover {
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.2);
+    /* transform: translateZ(0);  */
+  }
+  
+  .profile-info {
+    display: flex;
+    flex-direction: column;
+    /* align-items: flex-start; */
+  }
+  
+  .profile-item {
+      color: #eee; /* Lighter text color on the gradient background */
+      font-size: 1.3rem;
+      margin-bottom: 1rem;
+  }
+
+  
+  
+
+
+#Yarn {
+  font-weight: 900;
+  font-style: italic;
+  transition: color 0.5s ease; /* Add a smooth transition effect */
+}
+
+#Yarn:hover {
+  color: #e0585c; /* Change the color to red on hover */
+}
+
+
+
+
+
+/* button {
+  margin-left: 10px;
+  color: #fff;
+  font-weight: bold;
+  padding: 12px 20px; 
+  border: none;
+  cursor: pointer;
+  border-radius: 8px; 
+  background-color: #3498db; 
+  transition: background-color 0.3s ease, transform 0.3s ease; 
+}
+
+button:hover {
+  background-color: #2072a6; 
+  transform: scale(1.05);
+} */
+
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px; /* Adjust the padding as needed */
+}
+
+.box {
+  width: 50%; /* Adjust the width as needed */
+}
+
+
+
+.elements{
+  display: flex;
+  gap: 7.5%;
+  justify-content: center;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  
+  /* position: fixed; */
+}
+
+.buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 10%;
+  
+}
+
+.gameopt{
+  display: flex;
+  flex-direction: column;
+  gap:10px;
+ margin-top: 60%; 
+}
+
+.btngame{
+  background-color: #3498db;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  border-radius: 5px;text-align: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 12px 37px;
+  font-weight: bold;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+.btngame:hover{
+  background-color: #c3e6e3;
+  color: #3498db;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 4px 8px rgba(0, 0, 0, 0.2);
+  transform: scale(1.05);
+}
+
+
+#eventsfloating {
+  position: fixed;
+  bottom: 20px;
+  right: 40px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+#eventsfloating svg {
+  margin-right: 5px;
+}
+
+#popover {
+  display: none;
+  position: fixed;
+  bottom: 80px;
+  right: 30px;
+  /* background: linear-gradient(45deg, #3498db, #935dab); */
+  background: white;
+  color: black;
+  text-decoration: none;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#popovertxt {
+  background: none; /* Remove the background from the button */
+  color: black; /* Text color for the button */
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  text-align: start;
+}
+
+.chatbot-toggler {
+  position: fixed;
+  bottom: 30px;
+  right: 35px;
+  outline: none;
+  border: none;
+  height: 50px;
+  width: 50px;
+  display: flex;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: #724ae8;
+  transition: all 0.2s ease;
+}
+
+.chatbot {
+  position: fixed;
+  right: 35px;
+  bottom: 90px;
+  width: 420px;
+  background: #fff;
+  border-radius: 15px;
+  overflow: hidden;
+  opacity: 0;
+  pointer-events: none;
+  transform: scale(0.5);
+  transform-origin: bottom right;
+  box-shadow: 0 0 128px 0 rgba(0,0,0,0.1),
+              0 32px 64px -48px rgba(0,0,0,0.5);
+  transition: all 0.1s ease;
+}
+
+body.show-chatbot .chatbot-toggler {
+  transform: rotate(90deg);
+}
+.chatbot-toggler span {
+  color: #fff;
+  position: absolute;
+}
+.chatbot-toggler span:last-child,
+body.show-chatbot .chatbot-toggler span:first-child  {
+  opacity: 0;
+}
+body.show-chatbot .chatbot-toggler span:last-child {
+  opacity: 1;
+}
+
+body.show-chatbot .chatbot {
+  opacity: 1;
+  pointer-events: auto;
+  transform: scale(1);
+}
+.chatbot header {
+  padding: 16px 0;
+  position: relative;
+  text-align: center;
+  color: #fff;
+  background: #724ae8;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+.chatbot header span {
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  display: none;
+  cursor: pointer;
+  transform: translateY(-50%);
+}
+header h2 {
+  font-size: 1.4rem;
+}
+.chatbot .chatbox {
+  overflow-y: auto;
+  height: 510px;
+  padding: 30px 20px 100px;
+}
+
+.chatbot :where(.chatbox, textarea)::-webkit-scrollbar {
+  width: 6px;
+}
+.chatbot :where(.chatbox, textarea)::-webkit-scrollbar-track {
+  background: #fff;
+  border-radius: 25px;
+}
+.chatbot :where(.chatbox, textarea)::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 25px;
+}
+.chatbox .chat {
+  display: flex;
+  list-style: none;
+}
+.chatbox .outgoing {
+  margin: 20px 0;
+  justify-content: flex-end;
+}
+.chatbox .incoming span {
+  width: 32px;
+  height: 32px;
+  color: #fff;
+  cursor: default;
+  text-align: center;
+  line-height: 32px;
+  align-self: flex-end;
+  background: #724ae8;
+  border-radius: 4px;
+  margin: 0 10px 7px 0;
+}
+.chatbox .chat p {
+  white-space: pre-wrap;
+  padding: 12px 16px;
+  border-radius: 10px 10px 0 10px;
+  max-width: 75%;
+  color: #fff;
+  font-size: 0.95rem;
+  background: #724ae8;
+}
+.chatbox .incoming p {
+  border-radius: 10px 10px 10px 0;
+}
+.chatbox .chat p.error {
+  color: #721c24;
+  background: #f8d7da;
+}
+.chatbox .incoming p {
+  color: #000;
+  background: #f2f2f2;
+}
+.chatbot .chat-input {
+  display: flex;
+  gap: 5px;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background: #fff;
+  padding: 3px 20px;
+  border-top: 1px solid #ddd;
+}
+.chat-input textarea {
+  height: 55px;
+  width: 100%;
+  border: none;
+  outline: none;
+  resize: none;
+  max-height: 180px;
+  padding: 15px 15px 15px 0;
+  font-size: 0.95rem;
+}
+.chat-input span {
+  align-self: flex-end;
+  color: #724ae8;
+  cursor: pointer;
+  height: 55px;
+  display: flex;
+  align-items: center;
+  visibility: hidden;
+  font-size: 1.35rem;
+}
+.chat-input textarea:valid ~ span {
+  visibility: visible;
+}
+@media (max-width: 490px) {
+  .chatbot-toggler {
+    right: 20px;
+    bottom: 20px;
+  }
+  .chatbot {
+    right: 0;
+    bottom: 0;
+    height: 100%;
+    border-radius: 0;
+    width: 100%;
+  }
+  .chatbot .chatbox {
+    height: 90%;
+    padding: 25px 15px 100px;
+  }
+  .chatbot .chat-input {
+    padding: 5px 15px;
+  }
+  .chatbot header span {
+    display: block;
+  }
+}
+/* mobile */
+@media screen and (max-width: 768px) {  
+  .container-fluid {
+    padding-right: 15px;
+    padding-left: 15px;
+  }
+
+.buttons{
+  justify-content: center;
+  flex-direction: row;
+}
+
+#eventsfloating svg{
+  width: 25px;
+  height: 25px;
+}
+
+#eventsfloating{
+right: 16px;
+}
+#popover{
+  right: 16px;
+  }
+  #gameForm{
+    position: relative;
+    left: 14%;
+  }
+
+  #playGameBtn {
+    font-size: 1.7em;
+    position: relative;
+    left: 1.7rem;
+    padding: 8px 16px;
+  }
+
+  .box{
+    height: max-content;
+    width: max-content;
+    margin: auto;
+    align-items: center;
+    .Name{
+      padding: 0.5rem;
+      font-size: 1.2rem;
+    }
+  }
+.elements{
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.gameopt{
+  margin-top: 10%;
+}
+  .card{
+    height: max-content;
+    width: max-content;
+    margin: auto;
+    align-items: center;
+    left:0%;
+    top:11px;
+    .profile-title{
+      text-align: center;
+      size:1.5rem;
+
+    }
+  }
+  
+}
+
+
+/* tablet */
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  .card{
+    height: 325px;
+    width: 400px;
+    margin: auto;
+    
+    
+    .profile-title{
+      text-align: center;
+    }
+  }
+  #gameForm{
+    position: relative;
+    left: 30%;
+  }
+}
+

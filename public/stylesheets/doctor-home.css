@@ -1,0 +1,92 @@
+@import url('https://fonts.googleapis.com/css2?family=Bevan:ital@1&display=swap');
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-image: url('/assets/neww.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  cursor:url('/assets/Normal Select.cur'), auto;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #3498db;
+  padding: 10px;
+  font-weight: bold;
+}
+
+.logo img {
+  height: 40px; /* Adjust the height as needed */
+}
+
+/* Navbar options hover effect */
+.navbar-nav .nav-item:hover .nav-link {
+  background-color: #2072a6; /* Change the background color on hover */
+  color: #fff; /* Change the text color on hover */
+  border-radius: 5px; /* Add a slight border-radius on hover */
+  transition: background-color 0.3s ease, color 0.3s ease; /* Add a smooth transition effect */
+}
+
+
+.navbar-buttons {
+  display: flex;
+}
+.navbar-brand img {
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+
+/* Customize the background color and text color of dropdown items on hover */
+.dropdown-menu a.dropdown-item:hover {
+  background-color: #3498db;
+  color: white;
+}
+
+  button {
+    margin-left: 10px;
+    /* background-color: #ffffff; */
+    color: #276a97;
+    font-weight: bold;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    border-radius: 1rem;
+    background-color: #f3f5f7;
+    
+  }
+
+  .Title{
+    font-family: 'Bevan', serif;
+    font-weight: 500;
+    font-style: italic;
+    color: #3f7ea8;
+    margin-top: 2rem;
+    font-size: 1.5rem;
+  }
+
+  .transparent-table {
+    background-color: transparent;
+    border-collapse: collapse;
+    width: 100%;
+  }
+
+  .transparent-table th,
+  .transparent-table td {
+    padding: 8px;
+    text-align: center;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+  }
+
+  .transparent-table th {
+    background-color: rgba(0, 0, 0, 0.1);
+  }

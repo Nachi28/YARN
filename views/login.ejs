@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/stylesheets/login.css">
+
+    <title>Login</title>
+    <link rel="icon" type="image/x-icon" href="/assets/yarnlogo.ico">
+
+</head>
+
+<body>
+    <video autoplay loop muted>
+        <source src="/assets/background_vid.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <div class="content">
+    <div class="circle">
+        <img src="/assets/yarnlogo.png" alt="Your Image">
+    </div>
+    <div class="topic">YARN</div>
+
+    <div class="card box">
+        <div class="card-body desc">
+            Welcome to YARN<br/>
+
+            Where concerns Unwind, Wellness binds
+        </div>
+    </div>
+</div>
+
+
+    <div class="card">
+        <h1>Login</h1>
+        <% if (messages.error) { %>
+            <p class="error-message">
+                <%= messages.error %>
+            </p>
+            <% } %>
+                <form action="/login" method="POST">
+                    <div>
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" class="<%= messages.error ? 'input-error' : '' %>"
+                            required>
+                    </div>
+                    <div>
+                        <label for="password">Password</label>
+                        <input type="password" id="password" name="password"
+                            class="<%= messages.error ? 'input-error' : '' %>" required>
+                    </div>
+                    <button type="submit">Login</button>
+                </form>
+                <a href="/register">Register</a>
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/stylesheets/forum.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <title>Forum</title>
+  <link rel="icon" type="image/x-icon" href="/assets/yarnlogo.ico">
+  <style>
+
+
+  </style>
+</head>
+
+<body>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+    crossorigin="anonymous"></script>
+
+  <nav class="navbar navbar-expand-lg" style="background-color: #3498db;">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/" style="color:white; padding-bottom: 0rem;">
+        <img src="/assets/yarnlogo.png" href="/" alt="Logo" width="40" height="40"
+          class="d-inline-block align-text-center">YARN
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+          <li class="nav-item">
+            <a class="nav-link" href="/statistics" style="color:white;">Statistics</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/add-doctor" style="color:white;">Add Doc</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/journal" style="color:white;">Journal</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/forum" style="color:white;">Forum</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/todo" style="color:white;">Calender</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"
+              style="color:white;">
+              Account
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="/edit-profile">Edit Profile</a></li>
+              <li>
+                <a class="dropdown-item" href="/logout"
+                  onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Log
+                  Out</a>
+                <form id="logout-form" action="/logout?_method=DELETE" method="POST" style="display: none;"></form>
+              </li>
+              <li><a class="dropdown-item" href="#" onclick="deleteAccount()">Delete Account</a></li>
+            </ul>
+          </li>
+        </ul>
+        <!-- Add SOS button -->
+        <form action="/sendSOS" method="post">
+          <button type="submit" id="sosButton" class="btn btn-danger mx-2">SOS</button>
+        </form>
+      </div>
+  </nav>
+  <ydiv class="container">
+  <div class="existing-posts">
+    <div style="color: #297eb8; text-align: center; font-weight: bold; font-size: 28px;">Posts:</div>
+    <% if (forums.length > 0) { %>
+        <% forums.reverse().forEach(forum => { %>
+            <div class="forum-post">
+              
+                  <!-- ... existing post content ... -->
+                  <div class="post-header">
+                    <!-- ... (post header content) ... -->
+                    <div class="user-info">
+                      <!-- <img src="<%= forum.createdBy.profilePic %>" alt="User Profile Pic" class="profile-pic"> -->
+                      <svg class="profile-pic" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-person-circle" viewBox="0 0 16 16">
+                        <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0" />
+                        <path fill-rule="evenodd"
+                          d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1" />
+                      </svg>
+                      <span class="username">
+                        <%= forum.createdBy.username %>
+                      </span>
+                    </div>
+                    <div class="post-date">
+                      <%= forum.createdAt.toDateString() %>
+                    </div>
+                  </div>
+                  <div class="post-title">
+                    <%= forum.heading %>
+                  </div>
+                  <p class="post-description">
+                    <%= forum.description %>
+                  </p>
+                  <div class="post-info">
+                    <!-- ... (post info content) ... -->
+                    
+      <div class="tags">
+        <p>
+          <% forum.tags.reverse().forEach(tag=> { %> #<%= tag %>
+              <% }) %>
+        </p>
+      </div>
+      <div class="actions">
+        <button class="like-btn btn btn-danger">Like</button>
+        <button class="comment-btn add-comment-btn  btn btn-outline-dark">Comment</button>
+      </div>
+      
+                  </div>
+                  <form class="comment-form" action="/comment" method="POST" style="display: none;">
+                    <input type="hidden" name="forumId" value="<%= forum._id %>">
+                    <textarea name="comment" placeholder="Type your comment here..." required style="height: 60px;"></textarea><br>
+                    <button type="submit" class="btn btn-outline-dark">Post</button>
+                  </form>
+                  <div class="comment-section" style="display: none;">
+                    <% if (forum.comments.length> 0) { %>
+                      <div style="color: #297eb8; text-align: center; font-weight: bold; font-size: 20px;">Comments:</div>
+                      <ul class="comment-list">
+                        <% forum.comments.reverse().forEach(comment=> { %>
+                          <li class="comment-item">
+                            <!-- <div class="comment-header">
+                  <div class="user-icon"> 
+                  
+                  </div>
+                  <div class="user-info">
+                    <span class="username"><%= comment.author %></span>
+                    <span class="comment-date"><%= comment.createdAt.toDateString() %></span>
+                  </div>
+                </div> -->
+                            <div class="post-header">
+                              <div class="user-info">
+                                <!-- <img src="<%= forum.createdBy.profilePic %>" alt="User Profile Pic" class="profile-pic"> -->
+                                <svg class="profile-pic" xmlns="http://www.w3.org/2000/svg" width="16" height="16" color="grey"
+                                  fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+                                  <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0" />
+                                  <path fill-rule="evenodd"
+                                    d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1" />
+                                </svg>
+                                <span class="username">
+                                  <%= comment.author %>
+                                </span>
+                              </div>
+                              <div class="post-date">
+                                <%= comment.createdAt.toDateString() %>
+                              </div>
+                            </div>
+                            <div class="comment-content">
+                              <%= comment.content %>
+                            </div>
+                          </li>
+                          <% }) %>
+                      </ul>
+                      <% } %>
+                  </div>
+      
+      
+      
+                  <!-- <button class="comment-btn add-comment-btn btn btn-outline-dark">Add Comment</button> -->
+                 
+                
+            </div>
+        <% }); %>
+    <% } else { %>
+        <p>No posts in the forum.</p>
+    <% } %>
+</div>
+
+<div class="create-forum">
+  <div style="color: #297eb8; text-align: center; font-weight: bold; font-size: 28px;">Create Forum:</div>
+  <form action="/forum" method="POST">
+      <label for="heading" style="color: #297eb8;  font-weight: bold; font-size: 20px;">Heading:</label>
+      <input type="text" id="heading" name="heading" required>
+
+      <label for="description" style="color: #297eb8;  font-weight: bold; font-size: 20px; ">Description:</label>
+      <textarea id="description" name="description" style="width: -webkit-fill-available; border-radius: 8px; height: 120px; border: 2px solid #3498db;" required></textarea>
+
+      <label for="tags" style="color: #297eb8;  font-weight: bold; font-size: 20px;">Tags (comma-separated):</label>
+      <input type="text" id="tags" name="tags" required>
+
+      <button type="submit" style="display: flex; background-color: #3498db; border: none;  font-weight: bold;   padding: 11px; color: #fff;
+    margin-left: 30%; width: max-content; border-radius: 5px;">Create Post</button>
+  </form>
+</div>
+</div>
+
+
+
+
+  
+
+      <!-- <button id="eventsfloating">
+        <div class="logo_title" style=" display: flex; flex-direction: row;">
+          <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-plus-circle"
+            viewBox="0 0 16 16">
+            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16" />
+            <path
+              d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4" />
+          </svg>
+          <p style="text-align: center;  margin-bottom: 0%;"><strong>Create</strong></p>
+        </div>
+      </button>
+
+      <div id="popover">
+        <button id="popovertxt">
+          <div style="color: white; text-align: center; font-weight: bold; font-size: 20px;">Create Forum:</div>
+          <form action="/forum" method="POST">
+            <label for="heading">Heading:</label>
+            <input type="text" id="heading" name="heading" required>
+
+            <label for="description">Description:</label>
+            <textarea id="description" name="description" style="width: -webkit-fill-available; border-radius: 8px;"
+              required></textarea>
+
+            <label for="tags">Tags (comma-separated):</label>
+            <input type="text" id="tags" name="tags" required>
+
+
+            <button type="submit" style="    display: flex;
+        background-color: #ffffff;
+        color: #297eb8;
+        padding: 6px;">Create Event</button>
+          </form>
+
+
+        </button>
+
+      </div> -->
+
+
+
+
+      <script>
+
+        const addCommentBtns = document.querySelectorAll(".add-comment-btn");
+        const commentForms = document.querySelectorAll(".comment-form");
+        const commentSections = document.querySelectorAll(".comment-section");
+
+        addCommentBtns.forEach((btn, index) => {
+          btn.addEventListener("click", () => {
+            // Toggle visibility of comment form
+            commentForms[index].style.display = "block";
+
+            // Toggle visibility of comment section
+            const commentSection = commentSections[index];
+            commentSection.style.display = commentSection.style.display === "none" ? "block" : "none";
+          });
+        });
+
+        const eventsfloating = document.getElementById('eventsfloating');
+        const popover = document.getElementById('popover');
+
+        eventsfloating.addEventListener('click', () => {
+          popover.style.display = popover.style.display === 'none' ? 'block' : 'none';
+        });
+
+
+      </script>
+
+</body>
+
+</html>

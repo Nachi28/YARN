@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/stylesheets/journal.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+
+    <title>Journal</title>
+    <link rel="icon" type="image/x-icon" href="/assets/yarnlogo.ico">
+
+
+</head>
+
+<body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+
+
+    <nav class="navbar navbar-expand-lg" style="background-color: #3498db;">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/" style="color:white; padding-bottom: 0rem;">
+                <img src="/assets/yarnlogo.png" href="/" alt="Logo" width="40" height="40"
+                    class="d-inline-block align-text-center">YARN
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="/statistics" style="color:white;">Statistics</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/add-doctor" style="color:white;">Add Doc</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/journal" style="color:white;">Journal</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/forum" style="color:white;">Forum</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/todo" style="color:white;">Calender</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false" style="color:white;">
+                            Account
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="/edit-profile">Edit Profile</a></li>
+                            <li>
+                                <a class="dropdown-item" href="/logout"
+                                    onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Log
+                                    Out</a>
+                                <form id="logout-form" action="/logout?_method=DELETE" method="POST"
+                                    style="display: none;"></form>
+                            </li>
+                            <li><a class="dropdown-item" href="#" onclick="deleteAccount()">Delete Account</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <!-- Add SOS button -->
+                <form action="/sendSOS" method="post">
+                    <button type="submit" id="sosButton" class="btn btn-danger mx-2">SOS</button>
+                </form>
+            </div>
+    </nav>
+
+    <div class="px-4 mt-4">
+        <div class="col" style="margin-right:10%;">
+            <button class="btn btn-primary btn-hover" style="padding:15px; padding-right:40px; padding-left:40px;"
+                onclick="showContent('content1')">Write</button>
+            <button class="btn btn-primary btn-hover" style="padding:15px; padding-right:40px; padding-left:40px;"
+                onclick="showContent('content2')">Track</button>
+            <button class="btn btn-primary btn-hover" style="padding:15px; padding-right:40px; padding-left:40px;"
+                onclick="showContent('content3')">Entries</button>
+        </div>
+    </div>
+
+    <!-- write section -->
+    <!-- write section -->
+    <div id="content1" class="content p-4 mt-4">
+        <label for="content" style="font-size: 20px;"><strong>Content:</strong></label><br>
+        <div class="row mt-4">
+            <div class="col-md-6 text-left">
+                <form action="/journal" method="POST" onsubmit="return confirmJournalSubmission()">
+                    <textarea id="content" name="content" rows="12" cols="50" style="width: 100%;"></textarea><br>
+            </div>
+            <div class="col-md-6 text-left">
+                <label for="mood" style="font-size: 20px;"><strong>Mood:</strong></label><br>
+
+                <!-- Custom radio buttons container -->
+                <div id="radioButtons" class="mt-2">
+                    <label><input type="radio" name="mood" value="Happy"> Happy 😀</label><br>
+                    <label><input type="radio" name="mood" value="Sad"> Sad 😢</label><br>
+                    <label><input type="radio" name="mood" value="Angry"> Angry 🤬</label><br>
+                    <label><input type="radio" name="mood" value="Excited"> Excited 😄</label><br>
+                    <label><input type="radio" name="mood" value="Calm"> Calm 😌</label><br>
+                </div>
+
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+    <script id="userData" data-user='<%- JSON.stringify(user) %>'></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- track section -->
+
+
+    <div id="content2" class="p-4 content mt-4">
+        <div class="journal-track">
+            <div class="column" style="width: 40%;">
+                <!-- Table -->
+                <table class="table" style="width: 60%;">
+                    <thead>
+                        <tr>
+                            <th>Day</th>
+                            <th>Mood</th>
+                        </tr>
+                    </thead>
+                    <tbody id="journalTableBody">
+                        <% if (user.journal && user.journal.length> 0) { %>
+                            <% user.journal.reverse().forEach(entry=> {
+                                const entryDate = new Date(entry.timestamp);
+                                const entryDateFormatted = `${entryDate.getDate()} ${entryDate.toLocaleString('default',
+                                {
+                                month: 'long' })} ${entryDate.getFullYear()}`;
+                                %>
+                                <tr>
+                                    <td>
+                                        <%= entryDateFormatted %>
+                                    </td>
+                                    <td>
+                                        <%= entry.mood %>
+                                    </td>
+                                </tr>
+                                <% }); %>
+                                    <% } else { %>
+                                        <tr>
+                                            <td colspan="2">No entries found.</td>
+                                        </tr>
+                                        <% } %>
+                    </tbody>
+                </table>
+            </div>
+            <div class="column" style="width: 50%;">
+                <!-- Chart -->
+                <canvas id="moodChart" style="width: 100%;"></canvas>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- track section -->
+    <!-- <div id="content2" class="p-4 content mt-4">
+    <div class="journal-track" style="width: 50%;">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Day</th>
+                    <th>Mood</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% if (user.journal && user.journal.length > 0) { %>
+                    <% user.journal.reverse().forEach(entry => {
+                        const entryDate = new Date(entry.timestamp);
+                        const entryDateFormatted = `${entryDate.getDate()} ${entryDate.toLocaleString('default', { month: 'long' })} ${entryDate.getFullYear()}`;
+                    %>
+                        <tr>
+                            <td>
+                                <%= entryDateFormatted %>
+                            </td>
+                            <td>
+                                <%= entry.mood %>
+                            </td>
+                        </tr>
+                    <% }); %>
+                <% } else { %>
+                    <tr>
+                        <td colspan="2">No entries found.</td>
+                    </tr>
+                <% } %>
+            </tbody>
+        </table>
+    </div>
+</div> -->
+
+
+
+
+    <!-- entries section -->
+    <div id="content3" class="p-4 content mt-4">
+        <h2>Previous Journals:</h2>
+        <% if (user.journal && user.journal.length> 0) { %>
+            <div class="journal-container">
+                <% user.journal.reverse().forEach((entry, index)=> {
+                    const entryDate = new Date(entry.timestamp);
+                    const entryDateFormatted = `${entryDate.getDate()} ${entryDate.toLocaleString('default', { month:
+                    'long' })} ${entryDate.getFullYear()}`;
+                    %>
+                    <div class="journal-entry" data-index="<%= index %>">
+                        <div class="delete-entry" onclick="deleteJournalEntry(<%= index %>)"><i
+                                class="fas fa-times"><svg style="margin-left: 290px;" xmlns="http://www.w3.org/2000/svg"
+                                    x="0px" y="0px" width="20" height="20" viewBox="0 0 24 24">
+                                    <path
+                                        d="M 4.9902344 3.9902344 A 1.0001 1.0001 0 0 0 4.2929688 5.7070312 L 10.585938 12 L 4.2929688 18.292969 A 1.0001 1.0001 0 1 0 5.7070312 19.707031 L 12 13.414062 L 18.292969 19.707031 A 1.0001 1.0001 0 1 0 19.707031 18.292969 L 13.414062 12 L 19.707031 5.7070312 A 1.0001 1.0001 0 0 0 18.980469 3.9902344 A 1.0001 1.0001 0 0 0 18.292969 4.2929688 L 12 10.585938 L 5.7070312 4.2929688 A 1.0001 1.0001 0 0 0 4.9902344 3.9902344 z">
+                                    </path>
+                                </svg></button></i></div>
+                        <div class="entry-details">
+                            <strong>Day:</strong>
+                            <%= entryDateFormatted %><br>
+                                <strong>Content:</strong>
+                                <%= entry.content %><br>
+
+                                    <strong>Mood:</strong>
+                                    <%= entry.mood %>
+
+                                        <span class="entry-id" style="display: none;">
+                                            <%= entry._id %>
+                                        </span> <!-- Hide entry ID -->
+
+
+                        </div>
+                    </div>
+                    <% }); %>
+            </div>
+            <% } else { %>
+                <p>No previous journals found.</p>
+                <% } %>
+    </div>
+
+    <script src="/scripts/journal.js"></script>
+
+
+</body>
+
+</html>

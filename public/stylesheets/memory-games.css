@@ -1,0 +1,94 @@
+@import url('https://fonts.googleapis.com/css2?family=Bevan:ital@1&display=swap');
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-image: url('/assets/neww.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  cursor:url('/assets/Normal Select.cur'), auto;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #3498db;
+  padding: 10px;
+  font-weight: bold;
+}
+
+.logo img {
+  height: 40px; /* Adjust the height as needed */
+}
+
+/* Navbar options hover effect */
+.navbar-nav .nav-item:hover .nav-link {
+  background-color: #2072a6; /* Change the background color on hover */
+  color: #fff; /* Change the text color on hover */
+  border-radius: 5px; /* Add a slight border-radius on hover */
+  transition: background-color 0.3s ease, color 0.3s ease; /* Add a smooth transition effect */
+}
+
+
+.navbar-buttons {
+  display: flex;
+}
+.navbar-brand img {
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+
+/* Customize the background color and text color of dropdown items on hover */
+.dropdown-menu a.dropdown-item:hover {
+  background-color: #3498db;
+  color: white;
+}
+
+
+.Title{
+  color: #3f7ea8;
+  /* color: white; */
+  margin-top: 40px;
+  font-family: 'Bevan', serif;
+  font-weight: 600;
+  font-style: italic;
+}
+.rowcards{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-content: center;
+  margin:auto;
+  gap:20px;
+}
+
+.card:hover{
+    transform: scale(1.05);
+  }
+  .card {
+    width: 550px;
+    height: max-content;
+    background: linear-gradient(45deg, #3498db, #935dab); /* Gradient background */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    transition: box-shadow 0.3s ease;
+    }
+  
+  
+  
+    .card:hover {
+      box-shadow: 0 12px 20px rgba(0, 0, 0, 0.2);
+      /* transform: translateZ(0);  */
+    }
+    

@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+body {
+  margin: 0;
+  text-align: center;
+  font-family: 'Press Start 2P', cursive;
+  user-select: none;
+  background-color: #ece5e5; /* Slightly lighter background color */
+  color: #534444; /* White text color */
+}
+
+header {
+  margin: 0 auto;
+  width: 431px;
+}
+
+canvas {
+  display: block;
+  margin: 0 auto;
+  
+}
+
+h1 {
+  background: url("https://i.ibb.co/Q9yv5Jk/flappy-bird-set.png") 0% 340px;
+  padding: 1.2rem 0;
+  margin: 0;
+  color: #2b2727; /* White text color */
+}
+
+h2 {
+  font-size: 3em;
+  color: #3890e6;
+}
+
+#rules {
+  margin-top: 75px;
+  color: #fff; /* White text color */
+}
+
+ol {
+  text-align: left;
+}
+
+li {
+  margin-top: 8px;
+}
+
+.score-container {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 6px;
+  background: #5EE270;
+}
+
+#game {
+  display: inline-block;
+  background-color: #444; /* Darker background color for the game div */
+  
+  box-shadow: 0px 1px 70px 10px #948a8a;
+  border: 4px solid #c6c6c6;
+  margin-bottom: 0; /* Remove the bottom margin */
+}
+
+#camera-container {
+  display: inline-block;
+  margin-left: 20px;
+  vertical-align: top;
+  
+}
+
+video{
+  margin-top: 50px;
+  border: 4px solid #c6c6c6;
+  border-radius: 25px;
+  box-shadow: 0px 1px 70px 5px #948a8a;
+}
+
+
+

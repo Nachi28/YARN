@@ -1,0 +1,156 @@
+<!-- edit-profile.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <link rel="stylesheet" href="/stylesheets/edit-profile.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+  <title>YARN</title>
+  <link rel="icon" type="image/x-icon" href="/assets/yarnlogo.ico">
+
+
+</head>
+
+<body>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+    crossorigin="anonymous"></script>
+
+  <!-- Your existing HTML structure -->
+  <nav class="navbar navbar-expand-lg" style="background-color: #3498db;">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/" style="color:white; padding-bottom: 0rem;">
+        <img src="/assets/yarnlogo.png" href="/" alt="Logo" width="40" height="40"
+          class="d-inline-block align-text-center">YARN
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+          <li class="nav-item">
+            <a class="nav-link" href="/statistics" style="color:white;">Statistics</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/add-doctor" style="color:white;">Add Doc</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/journal" style="color:white;">Journal</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/forum" style="color:white;">Forum</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/todo" style="color:white;">Calender</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"
+              style="color:white;">
+              Account
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="/edit-profile">Edit Profile</a></li>
+              <li>
+                <a class="dropdown-item" href="/logout"
+                  onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Log
+                  Out</a>
+                <form id="logout-form" action="/logout?_method=DELETE" method="POST" style="display: none;"></form>
+              </li>
+              <li><a class="dropdown-item" href="#" onclick="deleteAccount()">Delete Account</a></li>
+            </ul>
+          </li>
+        </ul>
+        <!-- Add SOS button -->
+        <form action="/sendSOS" method="post">
+          <button type="submit" id="sosButton" class="btn btn-danger mx-2">SOS</button>
+        </form>
+      </div>
+  </nav>
+
+
+
+  <!-- Display any alerts here -->
+  <h3 class="Title" style="text-align: center;">Edit Your Profile</h3>
+  <div class="editform">
+    <div class="card"
+      style="width: 300px; background-color: rgba(255, 255, 255, 0.5); padding: 20px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+      <form id="editProfileForm" action="/edit-profile" method="post" onsubmit="return confirmChanges()">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" value="<%= user.username %>" required
+          style="width: 100%; padding: 8px; margin-bottom: 10px;">
+
+        <label for="age">Age:</label>
+        <input type="number" id="age" name="age" value="<%= user.age %>" required
+          style="width: 100%; padding: 8px; margin-bottom: 10px;">
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" value="<%= user.email %>" required
+          style="width: 100%; padding: 8px; margin-bottom: 10px;">
+
+
+        <label for="emergencyName">Emergency Contact Name:</label>
+        <input type="text" id="emergencyName" name="emergencyName" value="<%= user.emergencyContact.name %>"
+          style="width: 100%; padding: 8px; margin-bottom: 10px;">
+
+        <label for="emergencyPhone">Emergency Contact Phone:</label>
+        <input type="tel" id="emergencyPhone" name="emergencyPhone" value="<%= user.emergencyContact.phone %>"
+          style="width: 100%; padding: 8px; margin-bottom: 10px;">
+
+
+        <!-- Add other fields as needed -->
+
+        <button type="submit"
+          style="background-color: #1770ac; color: white; padding: 8px 15px; border: none; border-radius: 5px; cursor: pointer; margin-top: 4%;">Save
+          Changes</button>
+      </form>
+    </div>
+  </div>
+
+
+
+
+
+  <!-- <form id="editProfileForm" action="/edit-profile" method="post" onsubmit="return confirmChanges()">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" value="<%= user.username %>" required>
+
+    <label for="age">Age:</label>
+    <input type="number" id="age" name="age" value="<%= user.age %>" required>
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" value="<%= user.email %>" required>
+
+Add other fields as needed -->
+
+  <!-- <button type="submit">Save Changes</button>
+  </form> -->
+
+  <script>
+    function confirmChanges() {
+      // Validate age to be a positive number
+      const ageInput = document.getElementById('age');
+      const ageValue = parseInt(ageInput.value);
+
+      if (isNaN(ageValue) || ageValue < 0) {
+        alert('Age must be a positive number.');
+        return false;
+      }
+
+      // Display a confirmation prompt
+      const confirmed = confirm('Are you sure you want to save changes?');
+
+      if (confirmed) {
+        // If changes are confirmed, show the success alert
+        alert('Changes made successfully!');
+      }
+
+      return confirmed;
+    }
+  </script>
+</body>
+
+</html>

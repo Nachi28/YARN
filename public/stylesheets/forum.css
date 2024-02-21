@@ -1,0 +1,276 @@
+@import url('https://fonts.googleapis.com/css2?family=Bevan:ital@1&display=swap');
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: url('/assets/neww.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    cursor:url('/assets/Normal Select.cur'), auto;
+  }
+  
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #3498db;
+    padding: 10px;
+    font-weight: bold;
+  }
+  
+  .logo img {
+    height: 40px; /* Adjust the height as needed */
+  }
+  
+  /* Navbar options hover effect */
+  .navbar-nav .nav-item:hover .nav-link {
+    background-color: #2072a6; /* Change the background color on hover */
+    color: #fff; /* Change the text color on hover */
+    border-radius: 5px; /* Add a slight border-radius on hover */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Add a smooth transition effect */
+  }
+  
+  
+  .navbar-buttons {
+    display: flex;
+  }
+  .navbar-brand img {
+    border-radius: 50%;
+    margin-right: 10px;
+  }
+  
+  .dropdown:hover .dropdown-menu {
+    display: block;
+  }
+  
+  
+  /* Customize the background color and text color of dropdown items on hover */
+  .dropdown-menu a.dropdown-item:hover {
+    background-color: #3498db;
+    color: white;
+  }
+
+  #eventsfloating {
+    position: fixed;
+    bottom: 20px;
+    right: 40px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+  }
+  
+  #eventsfloating svg {
+    margin-right: 5px;
+    
+  }
+  .user-info svg {
+    background: grey;
+    color: white;
+}
+  #popover {
+    display: none;
+    position: fixed;
+    bottom: 80px;
+    right: 30px;
+    background: linear-gradient(45deg, #3498db, #935dab);  
+    text-decoration: none;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+
+  
+  #popovertxt {
+    background: none; /* Remove the background from the button */
+    color: #fff; /* Text color for the button */
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    text-align: start;
+  }
+  
+
+ label {
+  display: block;
+  margin-bottom: 8px;
+  color: white;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+input {
+  width: 100%;
+  padding: 14px; 
+  margin-bottom: 16px;
+  box-sizing: border-box;
+  border: 2px solid #3498db;
+  border-radius: 8px; 
+  transition: border-color 0.3s ease, box-shadow 0.3s ease; 
+}
+
+input:hover,
+input:focus {
+  border-color: #297eb8; 
+  box-shadow: 0 0 8px #3498db4d; 
+}
+  
+
+/* Remove specificity related to .forum-container */
+.existing-posts {
+  width: 500px;
+  margin-right: 16%;
+  margin-left: 8%;
+  margin-top: 4%;
+  border-radius: 30px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+.forum-post {
+  border: 1px solid #bdb9b9;
+  padding: 20px;
+  margin-top:10px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  background-color: #ffffff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.post-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  font-size: 20px;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+.profile-pic {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.post-date {
+  font-size: 14px;
+  color: #275a9c;
+}
+
+.post-title {
+  margin-bottom: 1px;
+  font-size: 20px;
+  font-weight: lighter;
+  font-family: 'Bevan', serif;
+  color: #275a9c;
+}
+
+.post-description {
+  margin-bottom: 5px;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+.post-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.tags {
+  font-size: 14px;
+  color: #6365cc;
+}
+
+.actions button {
+  margin-left: 10px;
+}
+
+.comment-btn {
+  border-color: grey;
+}
+
+.comment-form {
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.comment-form textarea {
+  width: 100%;
+  height: 150px;
+  resize: vertical;
+}
+
+.comment-item {
+  list-style: none;
+  border-bottom: 1px solid #ccc;
+  padding: 10px 0;
+}
+
+.comment-header {
+  display: flex;
+  align-items: center;
+}
+
+.user-icon {
+  margin-right: 10px;
+}
+
+.username {
+  font-weight: bold;
+}
+
+.comment-content {
+  margin-top: 5px;
+  text-align: justify;
+}
+
+.container {
+  display: flex;
+}
+
+.existing-posts {
+  padding: 20px;
+}
+
+.create-forum {
+  /* position: fixed; */
+  width: 400px;
+  /* background-color: #297eb8; */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  padding: 20px;
+  /* margin-left:50%; */
+  margin-top: 4%;
+  height: max-content;
+  color: white;
+  border-radius: 10px;
+}
+
+.create-forum form {
+  display: flex;
+  flex-direction: column;
+}
+
+.create-forum label {
+  margin-top: 10px;
+}
+
+.create-forum button {
+  margin-top: 10px;
+  cursor: pointer;
+}

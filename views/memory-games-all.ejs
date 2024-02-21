@@ -1,0 +1,896 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PLAY GAME</title>
+    <link rel="icon" type="image/x-icon" href="/assets/yarnlogo.ico">
+
+    <!-- <link rel="stylesheet" href="/stylesheets/memory-games-all.css"> -->
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"> </script>
+
+    <% if (selectedGame==='game3' ) { %>
+        <link href="/stylesheets/gameCss/game3Style/awsome/css/font-awesome.min.css" rel=stylesheet>
+        <link href="/stylesheets/gameCss/game3Style/style.min.css" rel=stylesheet type="text/css">
+        <script src="/scripts/memoryGames/minimi/sweetalert.min.js"></script>
+        <link rel="stylesheet" href="/stylesheets/gameCss/game3Style/themes/google/google.css">
+        <link rel="stylesheet" type="text/css" href="/stylesheets/gameCss/game3Style/sweetalert.css">
+        <script src="/scripts/memoryGames/minimi/shortcut.js"></script>
+        <script src="/scripts/memoryGames/minimi/script.min.js" type="text/javascript"></script>
+
+        <% } %>
+            <% if (selectedGame==='game4' ) { %>
+                <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+                    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+                    crossorigin="anonymous">
+                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+                    integrity="sha512-...." crossorigin="anonymous" />
+
+                <link rel="stylesheet" href="/stylesheets/gameCss/game4Style.css">
+                <link rel="icon" type="image/x-icon" href="#">
+
+                <title>Game Page</title>
+                <link rel="icon" type="image/x-icon" href="/assets/wingfit.ico">
+                <script src="/scripts/memoryGames/flappy_helper.js"></script>
+                <% } %>
+</head>
+
+<body>
+    <!-- game selected  -->
+    <div id="game-containers">
+        <% if (selectedGame==='game1' ) { %>
+            <div id="game-container1">
+                <!-- <iframe src="/memorygame.html" frameborder="0" width="100%" height="100%"></iframe> -->
+                <div id="ol"> </div>
+                <div style="height: 8px;"></div>
+                <div id="title">
+                    <span id="logo">MEMORY CARDS</span>
+                </div>
+
+                <div id="title" style="height: 40px;">
+                    <span id="moves"></span>
+                    <span id="time"></span>
+                </div>
+
+                <center>
+                    <table cellspacing="0"></table>
+                </center>
+
+            </div>
+            <link rel="stylesheet" href="/stylesheets/gameCss/game1Style.css">
+            <script src="/scripts/memoryGames/memorycards.js"></script>
+
+            <% } else if (selectedGame==='game2' ) { %>
+
+                <div id="game-container2">
+                    <nav class="app-bar">
+                        <button onclick="HamburgerButtonClick();" class="button bar-button hamburger-button">
+                            <span class="material-icons">menu</span>
+                        </button>
+                        <div class="bar-font title">Sudoku</div>
+                        <div id="moreoption-sec" class="more-option-div more-button">
+                            <button onclick="moreOptionButtonClick()" class="button bar-button">
+                                <span class="material-icons">more_vert</span>
+                            </button>
+                            <!-- it is important to put these styles in here because if I do not do that it will not work in javaScript-->
+                            <div id="more-option-list"
+                                style="visibility: hidden;max-height: 10px;max-width: 40px;min-width: 40px;"
+                                class="more-option-list">
+                                <button onclick="hintButtonClick()" ripple-color="#003c8f"
+                                    class="button nav-item vertical-adjust">Hint</button>
+                                <button onclick="restartButtonClick()" ripple-color="#003c8f"
+                                    class="button nav-item vertical-adjust">Restart</button>
+                                <button onclick="SurrenderButtonClick()" ripple-color="tomato"
+                                    class="button nav-item vertical-adjust">Surrender</button>
+                            </div>
+                        </div>
+
+                        <button id="pause-btn" onclick="pauseGameButtonClick()" class="button bar-button more-button">
+                            <span id="pause-icon" class="material-icons">pause</span>
+                            <span id="pause-text">Pause</span>
+                        </button>
+                        <button id="check-btn" onclick="checkButtonClick()" class="button bar-button more-button">
+                            <span class="material-icons">done_all</span>
+                            <span>Check</span>
+                        </button>
+                        <button id="isunique-btn" style="display: none;" onclick="isUniqueButtonClick();"
+                            class="button bar-button more-button">
+                            <span class="material-icons">call_split</span>
+                            <span>Is unique</span>
+                        </button>
+                        <button id="solve-btn" style="display: none;" onclick="solveButtonClick()"
+                            class="button bar-button more-button">
+                            <span class="material-icons">border_color</span>
+                            <span>Solve</span>
+                        </button>
+
+                    </nav>
+
+                    <div id="hamburger-menu" class="hamburger-menu">
+                        <nav id="nav-menu" class="nav-menu">
+                            <div class="nav-head">
+                                <div class="nav-head-img">
+                                    <img src="https://image.ibb.co/jmuOKn/icon.jpg" art="" />
+                                </div>
+                                <div class="nav-head-title">Sudoku</div>
+                            </div>
+                            <ul class="nav-items">
+                                <button onclick="showDialogClick('dialog');" ripple-color="#003c8f"
+                                    class="button nav-item vertical-adjust">
+                                    <div>
+                                        <span class="material-icons">add</span>
+                                        <span style="left:12px;">New game</span>
+                                    </div>
+                                </button>
+                                <button onclick="sudokuSolverMenuClick();" ripple-color="#003c8f"
+                                    class="button nav-item vertical-adjust">
+                                    <div>
+                                        <span class="material-icons">edit</span>
+                                        <span style="left:12px;">Sudoku Solver</span>
+                                    </div>
+                                </button>
+                                <button onclick="showDialogClick('about-dialog');" ripple-color="#003c8f"
+                                    class="button nav-item vertical-adjust">
+                                    <div>
+                                        <span class="material-icons">star</span>
+                                        <span style="left:12px;">About</span>
+                                    </div>
+                                </button>
+                                <div class="bar-footer">
+                                    <ul>
+                                        <a href="#" class="bar-footer-link">Site feedback</a>
+                                        <a href="#" class="bar-footer-link">Privacy</a>
+                                        <a href="#" class="bar-footer-link">Terms</a>
+                                    </ul>
+                                </div>
+                            </ul>
+                        </nav>
+                        <div class="nav-menu-blank" onclick="hideHamburgerClick()">
+
+                        </div>
+                    </div>
+
+                    <div class="floating">
+                        <button onclick="showDialogClick('dialog');" id="newGameButton"
+                            class="button floating-btn vertical-adjust">
+                            <span class="material-icons">add</span>
+                        </button>
+                    </div>
+
+                    <div id="dialog" class="dialog">
+                        <div id="dialog-box" class="dialog-content">
+                            <div class="dialog-header">New game</div>
+
+                            <div class="dialog-body">
+                                <p>Select game difficulty to get started.</p>
+                                <ul>
+                                    <li class="radio-option">
+                                        <label for="very-easy">
+                                            <input id="very-easy" value="very easy" type="radio" name="difficulty">
+                                            Very
+                                            easy
+                                        </label>
+                                    </li>
+                                    <li class="radio-option">
+                                        <label for="easy">
+                                            <input id="easy" value="easy" type="radio" name="difficulty"> Easy
+                                        </label>
+                                    </li>
+                                    <li class="radio-option">
+                                        <label for="normal">
+                                            <input id="normal" value="normal" type="radio" name="difficulty"> Normal
+                                        </label>
+                                    </li>
+                                    <li class="radio-option">
+                                        <label for="hard">
+                                            <input id="hard" value="hard" type="radio" name="difficulty"> Hard
+                                        </label>
+                                    </li>
+                                    <li class="radio-option">
+                                        <label for="very-hard">
+                                            <input id="very-hard" value="expert" type="radio" name="difficulty">
+                                            Expert
+                                        </label>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="dialog-footer">
+                                <button onclick="startGameButtonClick();" ripple-color="#003c8f"
+                                    class="button dialog-btn vertical-adjust">OK</button>
+                                <button onclick="hideDialogButtonClick('dialog');" ripple-color="#202020"
+                                    class="button dialog-btn vertical-adjust">Cancel</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="about-dialog" class="dialog">
+
+                        <div id="about-dialog-box" onblur="hideDialogButtonClick('about-dialog');"
+                            class="dialog-content about-dialog-content">
+                            <div class="dialog-header">CodeTeam6</div>
+
+                            <div class="dialog-body">
+                                <p>about us</p>
+                                <div class="card dialog-card">
+                                    <div class="about-card-img">
+                                        <img src="/public/assets/yarnlogo.png" alt="" />
+                                    </div>
+                                    <div class="about-card-title">YARN</div>
+                                    <div class="about-card-quote">Where concerns Unwind, Wellness binds
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="dialog-footer">
+                            <button onclick="hideDialogButtonClick('about-dialog');" ripple-color="#003c8f"
+                                class="button dialog-btn vertical-adjust">OK</button>
+                        </div>
+                    </div>
+
+
+                    <div class="body" id="sudoku">
+                        <div class="card game">
+                            <table id="puzzle-grid">
+                                <tr>
+                                    <td>
+                                        <input type="text" maxlength="1" onchange="checkInput(this)" disabled />
+                                    </td>
+                                    <td>
+                                        <input type="text" maxlength="1" onchange="checkInput(this)" disabled />
+                                    </td>
+                                    <td>
+                                        <input type="text" maxlength="1" onchange="checkInput(this)" disabled />
+                                    </td>
+
+                                    <td>
+                                        <input type="text" maxlength="1" onchange="checkInput(this)" disabled />
+                                    </td>
+                                    <td>
+                                        <input type="text" maxlength="1" onchange="checkInput(this)" disabled />
+                                    </td>
+                                    <td>
+                                        <input type="text" maxlength="1" onchange="checkInput(this)" disabled />
+                                    </td>
+
+                                    <td>
+                                        <input type="text" maxlength="1" onchange="checkInput(this)" disabled />
+                                    </td>
+                                    <td>
+                                        <input type="text" maxlength="1" onchange="checkInput(this)" disabled />
+                                    </td>
+                                    <td>
+                                        <input type="text" maxlength="1" onchange="checkInput(this)" disabled />
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>
+                                        <input type="text" maxlength="1" onchange="checkInput(this)" disabled />
+                                    </td>
+                                    <td>
+                                        <input type="text" maxlength="1" onchange="checkInput(this)" disabled />
+                                    </td>
+                                    <td>
+                                        <input type="text" maxlength="1" onchange="checkInput(this)" disabled />
+                                    </td>
+
+                                    <td>
+                                        <input type="text" maxlength="1" onchange="checkInput(this)" disabled />
+                                    </td>
+                                    <td>
+                                        <input type="text" maxlength="1" onchange="checkInput(this)" disabled />
+                                    </td>
+                                    <td>
+                                        <input type="text" maxlength="1" onchange="checkInput(this)" disabled />
+                                    </td>
+
+                                    <td>
+                                        <input type="text" maxlength="1" onchange="checkInput(this)" disabled />
+                                    </td>
+                                    <td>
+                                        <input type="text" maxlength="1" onchange="checkInput(this)" disabled />
+                                    </td>
+                                    <td>
+                                        <input type="text" maxlength="1" onchange="checkInput(this)" disabled />
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>
+                                        <input type="text" maxlength="1" onchange="checkInput(this)" disabled />
+                                    </td>
+                                    <td>
+                                        <input type="text" maxlength="1" onchange="checkInput(this)" disabled />
+                                    </td>
+                                    <td>
+                                        <input type="text" maxlength="1" onchange="checkInput(this)" disabled />
+                                    </td>
+
+                                    <td>
+                                        <input type="text" maxlength="1" onchange="checkInput(this)" disabled />
+                                    </td>
+                                    <td>
+                                        <input type="text" maxlength="1" onchange="checkInput(this)" disabled />
+                                    </td>
+                                    <td>
+                                        <input type="text" maxlength="1" onchange="checkInput(this)" disabled />
+                                    </td>
+
+                                    <td>
+                                        <input type="text" maxlength="1" onchange="checkInput(this)" disabled />
+                                    </td>
+                                    <td>
+                                        <input type="text" maxlength="1" onchange="checkInput(this)" disabled />
+                                    </td>
+                                    <td>
+                                        <input type="text" maxlength="1" onchange="checkInput(this)" disabled />
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>
+                                        <input type="text" maxlength="1" onchange="checkInput(this)" disabled />
+                                    </td>
+                                    <td>
+                                        <input type="text" maxlength="1" onchange="checkInput(this)" disabled />
+                                    </td>
+                                    <td>
+                                        <input type="text" maxlength="1" onchange="checkInput(this)" disabled />
+                                    </td>
+
+                                    <td>
+                                        <input type="text" maxlength="1" onchange="checkInput(this)" disabled />
+                                    </td>
+                                    <td>
+                                        <input type="text" maxlength="1" onchange="checkInput(this)" disabled />
+                                    </td>
+                                    <td>
+                                        <input type="text" maxlength="1" onchange="checkInput(this)" disabled />
+                                    </td>
+
+                                    <td>
+                                        <input type="text" maxlength="1" onchange="checkInput(this)" disabled />
+                                    </td>
+                                    <td>
+                                        <input type="text" maxlength="1" onchange="checkInput(this)" disabled />
+                                    </td>
+                                    <td>
+                                        <input type="text" maxlength="1" onchange="checkInput(this)" disabled />
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>
+                                        <input type="text" maxlength="1" onchange="checkInput(this)" disabled />
+                                    </td>
+                                    <td>
+                                        <input type="text" maxlength="1" onchange="checkInput(this)" disabled />
+                                    </td>
+                                    <td>
+                                        <input type="text" maxlength="1" onchange="checkInput(this)" disabled />
+                                    </td>
+
+                                    <td>
+                                        <input type="text" maxlength="1" onchange="checkInput(this)" disabled />
+                                    </td>
+                                    <td>
+                                        <input type="text" maxlength="1" onchange="checkInput(this)" disabled />
+                                    </td>
+                                    <td>
+                                        <input type="text" maxlength="1" onchange="checkInput(this)" disabled />
+                                    </td>
+
+                                    <td>
+                                        <input type="text" maxlength="1" onchange="checkInput(this)" disabled />
+                                    </td>
+                                    <td>
+                                        <input type="text" maxlength="1" onchange="checkInput(this)" disabled />
+                                    </td>
+                                    <td>
+                                        <input type="text" maxlength="1" onchange="checkInput(this)" disabled />
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>
+                                        <input type="text" maxlength="1" onchange="checkInput(this)" disabled />
+                                    </td>
+                                    <td>
+                                        <input type="text" maxlength="1" onchange="checkInput(this)" disabled />
+                                    </td>
+                                    <td>
+                                        <input type="text" maxlength="1" onchange="checkInput(this)" disabled />
+                                    </td>
+
+                                    <td>
+                                        <input type="text" maxlength="1" onchange="checkInput(this)" disabled />
+                                    </td>
+                                    <td>
+                                        <input type="text" maxlength="1" onchange="checkInput(this)" disabled />
+                                    </td>
+                                    <td>
+                                        <input type="text" maxlength="1" onchange="checkInput(this)" disabled />
+                                    </td>
+
+                                    <td>
+                                        <input type="text" maxlength="1" onchange="checkInput(this)" disabled />
+                                    </td>
+                                    <td>
+                                        <input type="text" maxlength="1" onchange="checkInput(this)" disabled />
+                                    </td>
+                                    <td>
+                                        <input type="text" maxlength="1" onchange="checkInput(this)" disabled />
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>
+                                        <input type="text" maxlength="1" onchange="checkInput(this)" disabled />
+                                    </td>
+                                    <td>
+                                        <input type="text" maxlength="1" onchange="checkInput(this)" disabled />
+                                    </td>
+                                    <td>
+                                        <input type="text" maxlength="1" onchange="checkInput(this)" disabled />
+                                    </td>
+
+                                    <td>
+                                        <input type="text" maxlength="1" onchange="checkInput(this)" disabled />
+                                    </td>
+                                    <td>
+                                        <input type="text" maxlength="1" onchange="checkInput(this)" disabled />
+                                    </td>
+                                    <td>
+                                        <input type="text" maxlength="1" onchange="checkInput(this)" disabled />
+                                    </td>
+
+                                    <td>
+                                        <input type="text" maxlength="1" onchange="checkInput(this)" disabled />
+                                    </td>
+                                    <td>
+                                        <input type="text" maxlength="1" onchange="checkInput(this)" disabled />
+                                    </td>
+                                    <td>
+                                        <input type="text" maxlength="1" onchange="checkInput(this)" disabled />
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>
+                                        <input type="text" maxlength="1" onchange="checkInput(this)" disabled />
+                                    </td>
+                                    <td>
+                                        <input type="text" maxlength="1" onchange="checkInput(this)" disabled />
+                                    </td>
+                                    <td>
+                                        <input type="text" maxlength="1" onchange="checkInput(this)" disabled />
+                                    </td>
+
+                                    <td>
+                                        <input type="text" maxlength="1" onchange="checkInput(this)" disabled />
+                                    </td>
+                                    <td>
+                                        <input type="text" maxlength="1" onchange="checkInput(this)" disabled />
+                                    </td>
+                                    <td>
+                                        <input type="text" maxlength="1" onchange="checkInput(this)" disabled />
+                                    </td>
+
+                                    <td>
+                                        <input type="text" maxlength="1" onchange="checkInput(this)" disabled />
+                                    </td>
+                                    <td>
+                                        <input type="text" maxlength="1" onchange="checkInput(this)" disabled />
+                                    </td>
+                                    <td>
+                                        <input type="text" maxlength="1" onchange="checkInput(this)" disabled />
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>
+                                        <input type="text" maxlength="1" onchange="checkInput(this)" disabled />
+                                    </td>
+                                    <td>
+                                        <input type="text" maxlength="1" onchange="checkInput(this)" disabled />
+                                    </td>
+                                    <td>
+                                        <input type="text" maxlength="1" onchange="checkInput(this)" disabled />
+                                    </td>
+
+                                    <td>
+                                        <input type="text" maxlength="1" onchange="checkInput(this)" disabled />
+                                    </td>
+                                    <td>
+                                        <input type="text" maxlength="1" onchange="checkInput(this)" disabled />
+                                    </td>
+                                    <td>
+                                        <input type="text" maxlength="1" onchange="checkInput(this)" disabled />
+                                    </td>
+
+                                    <td>
+                                        <input type="text" maxlength="1" onchange="checkInput(this)" disabled />
+                                    </td>
+                                    <td>
+                                        <input type="text" maxlength="1" onchange="checkInput(this)" disabled />
+                                    </td>
+                                    <td>
+                                        <input type="text" maxlength="1" onchange="checkInput(this)" disabled />
+                                    </td>
+                                </tr>
+
+                            </table>
+                        </div>
+
+                        <div class="card status">
+                            <div id="game-number">game #0</div>
+                            <ul class="game-status">
+                                <li>
+                                    <div class="vertical-adjust">
+                                        <span class="material-icons">timer</span>
+                                        <span id="timer-label">Time</span>
+                                    </div>
+                                    <div id="timer" class="timer">00:00</div>
+                                </li>
+
+                                <li>
+                                    <div class="vertical-adjust">
+                                        <span class="material-icons">network_check</span>
+                                        <span id="game-difficulty-label">Game difficulty</span>
+                                    </div>
+                                    <div id="game-difficulty" class="timer">None selected</div>
+                                </li>
+                                <li>
+                                    <div class="vertical-adjust">
+                                        <span class="material-icons">grid_on</span>
+                                        <span>Remaining numbers</span>
+                                    </div>
+                                    <div class="remain-table">
+                                        <div class="remain-column">
+                                            <div class="remain-cell">
+                                                <div class="remain-cell-header">1</div>
+                                                <div onchange="document.write('Hello');" id="remain-1"
+                                                    class="remain-cell-content">0
+                                                </div>
+                                            </div>
+                                            <div class="remain-cell">
+                                                <div class="remain-cell-header">4</div>
+                                                <div id="remain-4" class="remain-cell-content">0</div>
+                                            </div>
+                                            <div class="remain-cell">
+                                                <div class="remain-cell-header">7</div>
+                                                <div id="remain-7" class="remain-cell-content">0</div>
+                                            </div>
+                                        </div>
+                                        <div class="remain-column">
+                                            <div class="remain-cell">
+                                                <div class="remain-cell-header">2</div>
+                                                <div id="remain-2" class="remain-cell-content">0</div>
+                                            </div>
+                                            <div class="remain-cell">
+                                                <div class="remain-cell-header">5</div>
+                                                <div id="remain-5" class="remain-cell-content">0</div>
+                                            </div>
+                                            <div class="remain-cell">
+                                                <div class="remain-cell-header">8</div>
+                                                <div id="remain-8" class="remain-cell-content">0</div>
+                                            </div>
+                                        </div>
+                                        <div class="remain-column">
+                                            <div class="remain-cell">
+                                                <div class="remain-cell-header">3</div>
+                                                <div id="remain-3" class="remain-cell-content">0</div>
+                                            </div>
+                                            <div class="remain-cell">
+                                                <div class="remain-cell-header">6</div>
+                                                <div id="remain-6" class="remain-cell-content">0</div>
+                                            </div>
+                                            <div class="remain-cell">
+                                                <div class="remain-cell-header">9</div>
+                                                <div id="remain-9" class="remain-cell-content">0</div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </li>
+                            </ul>
+
+                            <!--<button class="option-button">
+                                      <span class="material-icons">pause</span>
+                                      <span>Pause</span>
+                                  </button>
+                                  <button class="option-button">
+                                      <span class="material-icons">done_all</span>
+                                      <span>Check</span>
+                                  </button>
+                                  <button class="option-button">
+                                      <span class="material-icons">help</span>
+                                      <span>Hint</span>
+                                  </button>
+                                  <button class="option-button">
+                                      <span class="material-icons">refresh</span>
+                                      <span>Restart</span>
+                                  </button>
+                                  <button class="option-button">
+                                      <span class="material-icons">flag</span>
+                                      <span>Surrender</span>
+                                  </button>
+                              -->
+                        </div>
+                    </div>
+                </div>
+                <link rel="stylesheet" href="/stylesheets/gameCss/game2Style.css">
+                <script src="/scripts/memoryGames/sudoku.js"></script>
+                <script>
+                    var dialogButton = document.getElementById("newGameButton");
+                    dialogButton.click(); // Simulate a click on the dialog button
+
+                </script>
+
+                <!-- Add code to render game 2 here if available -->
+                <% } else if (selectedGame==='game3' ) { %>
+                    <div id="game-container3">
+                        <!-- Add code to render game 3 here if available -->
+                        <div id="particles-js" itemprop="particleSection"> </div>
+                        <div class="siteWrapper" id="siteWrapper" itemprop="mainContentOfPage">
+                            <div class="shortcut">
+                                <h2>Shortcuts</h2>
+                                <p>Reset (r)</p>
+                                <p>Quick Help (q)</p>
+                            </div>
+                            <div class="music_control">
+                                <p id="sound_on_off" onclick="audioControl();"><i class="fa fa-volume-off fa-3x"
+                                        aria-hidden="true"></i></p>
+                            </div>
+                            <h1 id="game_name" class="get_name" itemprop="siteName">Loading ...</h1>
+                            <div class="header" id="header" itemprop="siteMenu">
+                                <button onclick="startGame();" class="reset" title="Start Game"
+                                    id="start">Start</button>
+                            </div>
+                            <table class="mnimi" id="mnimi" itemprop="gameTable">
+                                <tr>
+                                    <td id="1" onclick="replyClick(this.id)"></td>
+                                    <td id="2" onclick="replyClick(this.id)"></td>
+
+                                </tr>
+                                <tr>
+                                    <td id="3" onclick="replyClick(this.id)"></td>
+                                    <td id="4" onclick="replyClick(this.id)"></td>
+                                </tr>
+                            </table>
+
+                            <table class="score" id="score" itemprop="scoreTable">
+                                <tr>
+                                    <td>Score</td>
+                                    <td id="win">0</td>
+                                </tr>
+                            </table>
+                            <div class="button_section" itemprop="controlButtonSection">
+                                <button onclick="scoreTable();" class="reset" id="score_button"
+                                    title="Score">Score</button>
+                                <button onclick="restartGame();" class="reset" title="Restart Game"
+                                    id="restart">Reset</button>
+                                <button onclick="redirect(5);" class="reset" id="help2" title="Help Page">Help</button>
+                                <button onclick="redirect(6);" class="reset" id="support2"
+                                    title="Support Game">Support</button>
+                            </div>
+
+                        </div>
+
+
+                        <script>
+                            begin();
+                        </script>
+                        <script>
+                            if ('serviceWorker' in navigator) {
+                                navigator.serviceWorker.register('service-worker.js')
+                                    .then(function (reg) {
+                                    }).catch(function (err) {
+                                    });
+                            }
+                        </script>
+                        <script src="/scripts/memoryGames/minimi/particles.min.js"></script>
+                        <script src="/scripts/memoryGames/minimi/app.js"></script>
+
+
+                        <% } %>
+
+                    </div>
+    </div>
+
+    <form id="gameForm" method="POST" action="/memory-games">
+        <input type="hidden" name="selectedGameType" id="selectedGameType" value="<%= selectedGame %>">
+    </form>
+
+    <script>
+        // Add event listener to the form submission
+        document.getElementById('gameForm').addEventListener('submit', function (event) {
+            event.preventDefault(); // Prevent the default form submission
+
+            // Submit the form
+            this.submit();
+        });
+    </script>
+    <% if (selectedGame==='game4' ) { %>
+        <% selectedGameType="hand" %>
+            <div id="game-container3">
+                <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+                    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+                    crossorigin="anonymous"></script>
+                <!-- Loading overlay -->
+                <div id="loading-overlay">
+                    <p id="loading-message">Loading...</p>
+                    <img id="flappy-bird-gif" src="/assets/flappybird-loading.gif" alt="Flappy Bird">
+
+                </div>
+                <div id="gameContent">
+                    <!-- Paste the integrated game code here -->
+                    <div>
+                    </div>
+
+                    <div id="game">
+                        <header>
+                            <!-- <div class="score-container">
+                  <div id="bestScore"></div>
+                  <div id="currentScore"></div>
+                </div> -->
+                            <div class="score-container">
+                                <div id="bestScore"></div>
+                                <div id="currentScore"></div>
+                                <div class="settings-container">
+                                    <div class="dropdown-stuff">
+                                        <button class="btn btn-secondary dropdown-toggle" type="button" id="menuButton"
+                                            data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            Menu
+                                        </button>
+                                        <ul class="dropdown-menu" aria-labelledby="menuButton">
+                                            <li>
+                                                <a id="muteToggle" class="dropdown-item" href="#"
+                                                    onclick="toggleMusic()">
+                                                    <i class="bi bi-volume-mute"></i> Mute Music
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <label class="dropdown-item">Adjust Volume</label>
+                                                <input type="range" class="volume-slider" id="volumeSlider" min="0"
+                                                    max="100" value="10" oninput="adjustVolume(this.value)">
+                                                <span id="volumePercentage">10%</span>
+                                            </li>
+                                            <li>
+                                                <label class="dropdown-item">Difficulty</label>
+                                                <input type="range" name="gameLvl" class="form-range" min="0" max="2"
+                                                    step="1" id="customRange3" oninput="updateLabel(this.value)">
+                                                <p id="levelLabel" style="text-align: center;">Medium</p>
+                                            </li>
+                                            <li><a class="dropdown-item" href="#" onclick="calibrate()">Calibration</a>
+                                            </li>
+                                        </ul>
+
+                                        <button id="pauseButton"
+                                            style="width: 32px; height: 32px; background-color: transparent; border: none; padding: 0;"
+                                            onclick="togglePause()">
+                                            <svg id="pauseIcon" xmlns="http://www.w3.org/2000/svg" width="16"
+                                                height="16" fill="currentColor" class="bi bi-pause-fill"
+                                                viewBox="0 0 16 16">
+                                                <path
+                                                    d="M5.5 3.5A1.5 1.5 0 0 1 7 5v6a1.5 1.5 0 0 1-3 0V5a1.5 1.5 0 0 1 1.5-1.5m5 0A1.5 1.5 0 0 1 12 5v6a1.5 1.5 0 0 1-3 0V5a1.5 1.5 0 0 1 1.5-1.5" />
+                                            </svg>
+                                        </button>
+
+                                        <button id="fullscreen"
+                                            style="width: 32px; height: 32px; background-color: transparent; border: none;margin-right: 20px;  padding: 0;">
+                                            <!-- <img src="/assets/fullscreen.png" alt="Start Game" style="width: 100%; height: auto;"> -->
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                                fill="currentColor" class="bi bi-fullscreen" viewBox="0 0 16 16">
+                                                <path
+                                                    d="M1.5 1a.5.5 0 0 0-.5.5v4a.5.5 0 0 1-1 0v-4A1.5 1.5 0 0 1 1.5 0h4a.5.5 0 0 1 0 1zM10 .5a.5.5 0 0 1 .5-.5h4A1.5 1.5 0 0 1 16 1.5v4a.5.5 0 0 1-1 0v-4a.5.5 0 0 0-.5-.5h-4a.5.5 0 0 1-.5-.5M.5 10a.5.5 0 0 1 .5.5v4a.5.5 0 0 0 .5.5h4a.5.5 0 0 1 0 1h-4A1.5 1.5 0 0 1 0 14.5v-4a.5.5 0 0 1 .5-.5m15 0a.5.5 0 0 1 .5.5v4a1.5 1.5 0 0 1-1.5 1.5h-4a.5.5 0 0 1 0-1h4a.5.5 0 0 0 .5-.5v-4a.5.5 0 0 1 .5-.5" />
+                                            </svg>
+                                        </button>
+
+
+                                    </div>
+                                </div>
+                            </div>
+                            <audio id="bgMusic" loop>
+                                <source src="/assets/music/bg_m2.mp3" type="audio/mpeg">
+                            </audio>
+
+                        </header>
+                        <canvas id="canvas"></canvas>
+
+                        <script>
+
+                        </script>
+                    </div>
+
+
+
+                    <div id="camera-container">
+                        <canvas id="vidcanvas" width="332" height="250"></canvas>
+                        <video id="webcam" width="332" height="250" autoplay style="display: none;"></video>
+                    </div>
+
+
+                    <div class="card">
+                        <div class="card-content">
+                            <!-- <h3 class="card-title">Game Rules</h3> -->
+                            <div class="card-info">
+                                <!-- <h2 class="card-item">Welcome to <span style="font-weight: 900; font-style: italic;">WingFit</span><br> <%= user.username %></h2> -->
+                                <p class="card-item">Game Type: <b>"<%= selectedGameType %>"</b></p>
+                                <p class="card-item">Difficulty:
+                                    <%let gameLvl='0' %>
+                                        <% if (gameLvl==='0' ) { %>
+                                            Easy
+                                            <% } else if (gameLvl==='1' ) { %>
+                                                Medium
+                                                <% } else if (gameLvl==='2' ) { %>
+                                                    Hard
+                                                    <% } %>
+                                </p>
+                                <script id="userData"
+                                    data-user='<%- JSON.stringify({ selectedGameType, gameLvl }) %>'></script>
+                            </div>
+
+                            <div class="card-item" style="text-align: left;">Rules:</div>
+                            <ol class="card-item-list">
+                                <% if (selectedGameType==="hand" ) { %>
+                                    <li>Use any 1 hand</li>
+                                    <li>Make a close fist to make the bird jump</li>
+                                    <li>Let the palm face parallel to the camera</li>
+                                    <% } else if (selectedGameType==="pose" ) { %>
+                                        <li>Use any 1 arm</li>
+                                        <li>Keep the hand and upper body in the frame</li>
+                                        <li>Bend the right arm (elbow flexion) <br>to make the bird jump</li>
+                                        <% } %>
+                            </ol>
+                        </div>
+                    </div>
+
+
+
+
+                    <audio id="bgMusic" loop>
+                        <source src="/assets/music/bg_m2.mp3" type="audio/mpeg">
+                    </audio>
+                    <audio id="clickSound">
+                        <source src="/assets/music/wing.mp3" type="audio/mpeg">
+                    </audio>
+                    <audio id="loseSound">
+                        <source src="/assets/music/lose.mp3" type="audio/mpeg">
+                    </audio>
+                    <script src="/scripts/memoryGames/flappygame.js" type="module"></script>
+
+                    <script
+                        src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
+                    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils/drawing_utils.js"
+                        crossorigin="anonymous"></script>
+                    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands/hands.js"
+                        crossorigin="anonymous"></script>
+                    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+                        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+                        crossorigin="anonymous"></script>
+                    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+                        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+                        crossorigin="anonymous"></script>
+                    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+                        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+                        crossorigin="anonymous"></script>
+                </div>
+                <script src="/scripts/delAcc.js"></script>
+                <!-- <script src="/scripts/memoryGames/flappy_helper.js"></script> -->
+
+
+            </div>
+            <% } %>
+                </div>
+
+</body>
+
+</html>
